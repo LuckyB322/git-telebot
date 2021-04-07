@@ -61,6 +61,5 @@ async def start_command(message: types.Message):
             await message.reply("\U00002620 Проверьте название города \U00002620")
 
 
-
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)

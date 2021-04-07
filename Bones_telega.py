@@ -7,6 +7,7 @@ bot = Bot('1714723890:AAGFc4z3h3fTsy_k1jhesajH1QXjGuzqzV0')
 
 dp = Dispatcher(bot)
 
+#comment
 
 @dp.message_handler()
 async def on_message(message: types.Message):
