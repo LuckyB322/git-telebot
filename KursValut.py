@@ -11,9 +11,12 @@ dp = Dispatcher(bot)
 URL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
 
 
-@dp.message_handler(commands=['kurs'])
+@dp.message_handler(commands='kurs')
 async def start_command(message: types.Message):
-    await message.answer("Привет! Доступны валюты USD EUR RUR BTC")
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    buttons = ["USD", "EUR", "RUR", "BTC"]
+    keyboard.add(*buttons)
+    await message.answer("Привет! Выбери валюту\U0001F4B8:", reply_markup=keyboard)
 
     @dp.message_handler()
     async def get_exchange(message: types.Message):
@@ -21,12 +24,12 @@ async def start_command(message: types.Message):
         for exc in data:
             if message.text == exc['ccy'] and message.text != 'BTC':
                 await message.answer(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-                                     f'{message.text}\nПродажа : {exc["buy"]}грн \n'
-                                     f'Покупка : {exc["sale"]}грн \n ')
+                                     f'\U0001F4B0{message.text}\nПродажа : {exc["buy"]}₴\n'
+                                     f'Покупка : {exc["sale"]}₴\n ', reply_markup=types.ReplyKeyboardRemove())
             elif message.text == exc['ccy']:
                 await message.answer(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}***\n"
-                                     f'{message.text}\nПродажа : {exc["buy"]} usd \n'
-                                     f'Покупка : {exc["sale"]} usd \n ')
+                                     f'\U0001F4B0{message.text}\nПродажа : {exc["buy"]}$\n'
+                                     f'Покупка : {exc["sale"]}$', reply_markup=types.ReplyKeyboardRemove())
                 pass
 
 
