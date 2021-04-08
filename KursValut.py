@@ -12,7 +12,7 @@ URL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
 
 @dp.message_handler(commands=['kurs'])
 async def start_command(message: types.Message):
-    await message.reply("Привет! Доступны валюты USD EUR BTC")
+    await message.reply("Привет! Доступны валюты USD EUR RUR BTC")
 
     @dp.message_handler()
     async def get_exchange(message: types.Message):
