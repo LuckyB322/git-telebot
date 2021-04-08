@@ -20,8 +20,8 @@ async def start_command(message: types.Message):
         for exc in data:
             if message.text == exc['ccy']:
                 await message.reply(f"***{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}*** \n"
-                                    f'{message.text}\nПокупка : {exc["buy"]}грн \n'
-                                    f'Продажа : {exc["sale"]}грн \n ')
+                                    f'{message.text}\nПродажа : {exc["buy"]}грн \n'
+                                    f'Покупка : {exc["sale"]}грн \n ')
 
 
 if __name__ == '__main__':
