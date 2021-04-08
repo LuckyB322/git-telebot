@@ -3,9 +3,9 @@ import datetime
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
+from config import weather_token, bot_token
 
-weather_token = '608f15eaef4cc335e9641864e39fc635'
-bot = Bot('1714723890:AAGFc4z3h3fTsy_k1jhesajH1QXjGuzqzV0')
+bot = Bot(bot_token)
 dp = Dispatcher(bot)
 
 

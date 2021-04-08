@@ -1,13 +1,11 @@
 from aiogram import Bot, Dispatcher, types, executor
 from asyncio import sleep
+from config import bot_token
 
-# chat_id = -1001319214051
-group_id = -539729788
-bot = Bot('1714723890:AAGFc4z3h3fTsy_k1jhesajH1QXjGuzqzV0')
+bot = Bot(bot_token)
 
 dp = Dispatcher(bot)
 
-#comment
 
 @dp.message_handler()
 async def on_message(message: types.Message):
