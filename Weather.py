@@ -57,7 +57,7 @@ async def start_command(message: types.Message):
                                 f"***Хорошего дня!***"
                                 )
 
-        except:
+        except KeyError:
             await message.reply("\U00002620 Проверьте название города \U00002620")
 
 
