@@ -4,7 +4,8 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 import json
-from config import bot_token
+from config import bot_token, weather_token
+from Weather import start_command
 
 bot = Bot(bot_token)
 dp = Dispatcher(bot)
@@ -12,7 +13,7 @@ URL = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
 
 
 @dp.message_handler(commands='kurs')
-async def start_command(message: types.Message):
+async def start_command_kurs(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     buttons = ["USD", "EUR", "RUR", "BTC"]
     keyboard.add(*buttons)

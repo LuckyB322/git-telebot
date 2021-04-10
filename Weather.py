@@ -9,7 +9,7 @@ bot = Bot(bot_token)
 dp = Dispatcher(bot)
 
 
-@dp.message_handler(commands=['weather'])
+@dp.message_handler(commands='weather')
 async def start_command(message: types.Message):
     await message.reply("Привет! Напиши мне название города и я пришлю сводку погоды!")
 
